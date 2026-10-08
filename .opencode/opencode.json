@@ -1,0 +1,380 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"model":   "openai/gpt-6.1-sol",
+	"small_model": "databricks-oss/system.ai.glm-5-3-flash",
+	"enabled_providers": ["databricks-oss", "anthropic", "openai"],
+	"subagent_depth": 2,
+	"watcher": {
+		"ignore": [".venv/**", "dist/**", ".git/**", "node_modules/**", "target/**"]
+	},
+	"provider": {
+		"anthropic": {
+	    	"whitelist": ["claude-opus-5-5"],
+	    	"options": {
+	        	"apiKey": "{env:OPENCODE_ANTHROPIC_API_KEY}"
+	    	},
+	    	"models": {
+		      "claude-opus-5-5": {
+		        "reasoning": true,
+		        "options": {
+		          "toolStreaming": false
+		        },
+		        "variants": {
+		          "low":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "low" },
+		          "medium": { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "medium" },
+		          "high":   { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "high" },
+		          "xhigh":  { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "xhigh" },
+		          "max":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "max" }
+		        }
+		      },
+		      "claude-sonnet-5-5": {
+		        "reasoning": true,
+		        "options": {
+		          "toolStreaming": false
+		        },
+		        "variants": {
+		          "low":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "low" },
+		          "medium": { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "medium" },
+		          "high":   { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "high" },
+		          "xhigh":  { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "xhigh" },
+		          "max":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "max" }
+		        }
+		      }
+		    }
+	    },
+	    "openai": {
+	     	"whitelist": ["gpt-6-astra", "gpt-6-luna", "gpt-6.1-sol"],
+	     	"options": {
+	        	"apiKey": "{env:OPENAI_API_KEY}"
+	      	},	
+	      	"models": {
+		      "gpt-6.1-sol": {
+		        "reasoning": true,
+		        "variants": {
+		          "none":   { "reasoningEffort": "none" },
+		          "low":    { "reasoningEffort": "low" },
+		          "medium": { "reasoningEffort": "medium" },
+		          "high":   { "reasoningEffort": "high" },
+		          "xhigh":  { "reasoningEffort": "xhigh" },
+		          "max":    { "reasoningEffort": "max" }
+		        }
+		      },
+		      "gpt-6-astra": {
+		        "reasoning": true,
+		        "variants": {
+		          "low":    { "reasoningEffort": "low" },
+		          "medium": { "reasoningEffort": "medium" },
+		          "high":   { "reasoningEffort": "high" },
+		          "xhigh":  { "reasoningEffort": "xhigh" },
+		          "max":    { "reasoningEffort": "max" }
+		        }
+		      },
+		      "gpt-6-luna": {
+		        "reasoning": true,
+		        "variants": {
+		          "none":   { "reasoningEffort": "none" },
+		          "low":    { "reasoningEffort": "low" },
+		          "medium": { "reasoningEffort": "medium" },
+		          "high":   { "reasoningEffort": "high" },
+		          "xhigh":  { "reasoningEffort": "xhigh" },
+		          "max":    { "reasoningEffort": "max" }
+		      }
+	 	    }
+	      }
+	    },
+		"databricks-oss": {
+		  "whitelist": [
+		    "system.ai.glm-5-2",
+		    "system.ai.glm-5-3",
+		    "system.ai.glm-5-3-flash",
+		    "system.ai.deepseek-v4-pro-0813",
+		    "system.ai.deepseek-v4-1-flash"
+		  ],
+		  "npm": "@ai-sdk/openai-compatible",
+		  "options": {
+		    "baseURL": "https://empiricotx.cloud.databricks.com/ai-gateway/mlflow/v1",
+		    "apiKey": "{env:OPENCODE_DATABRICKS_TOKEN}",
+		    "includeUsage": true,
+		    "setCacheKey": true
+		  },
+		  "models": {
+		    "system.ai.glm-5-2": {
+		      "reasoning": true,
+		      "cost": {
+		        "input": 1.40,
+		        "output": 4.40,
+		        "cache_read": 0.26
+		      },
+		      "headers": {
+		        "User-Agent": "ucode/0.1.0 opencode/1.18.29"
+		      },
+		      "limit": {
+		        "context": 800000,
+		        "output": 25000
+		      },
+		      "variants": {
+		        "none": {
+		          "reasoningEffort": "none"
+		        },
+		        "high": {
+		          "reasoningEffort": "high"
+		        },
+		        "max": {
+		          "reasoningEffort": "max"
+		        }
+		      }
+		    },
+		    "system.ai.glm-5-3": {
+		      "reasoning": true,
+		      "cost": {
+		        "input": 1.40,
+		        "output": 4.40,
+		        "cache_read": 0.26
+		      },
+		      "headers": {
+		        "User-Agent": "ucode/0.1.0 opencode/1.18.29"
+		      },
+		      "limit": {
+		        "context": 800000,
+		        "output": 25000
+		      },
+		      "variants": {
+		        "low": {
+		          "reasoningEffort": "low"
+		        },
+		        "high": {
+		          "reasoningEffort": "high"
+		        },
+		        "max": {
+		          "reasoningEffort": "max"
+		        }
+		      }
+		    },
+		    "system.ai.glm-5-3-flash": {
+		      "reasoning": true,
+		      "cost": {
+		        "input": 0.15,
+		        "output": 0.50,
+		        "cache_read": 0.03
+		      },
+		      "headers": {
+		        "User-Agent": "ucode/0.1.0 opencode/1.18.29"
+		      },
+		      "limit": {
+		        "context": 1000000,
+		        "output": 30000
+		      },
+		      "variants": {
+		        "low": {
+		          "reasoningEffort": "low"
+		        },
+		        "high": {
+		          "reasoningEffort": "high"
+		        },
+		        "max": {
+		          "reasoningEffort": "max"
+		        }
+		      }
+		    },
+		    "system.ai.deepseek-v4-pro-0813": {
+		      "reasoning": true,
+		      "cost": {
+		        "input": 1.32,
+		        "output": 3.96,
+		        "cache_read": 0.132
+		      },
+		      "headers": {
+		        "User-Agent": "ucode/0.1.0 opencode/1.18.29"
+		      },
+		      "limit": {
+		        "context": 800000,
+		        "output": 25000
+		      },
+		      "variants": {
+		        "none": {
+		          "reasoningEffort": "none"
+		        },
+		        "low": {
+		          "reasoningEffort": "low"
+		        },
+		        "medium": {
+		          "disabled": true
+		        },
+		        "high": {
+		          "reasoningEffort": "high"
+		        },
+		        "max": {
+		          "reasoningEffort": "max"
+		        }
+		      }
+		    },
+		    "system.ai.deepseek-v4-1-flash": {
+		      "reasoning": true,
+		      "cost": {
+		        "input": 0.30,
+		        "output": 1.20,
+		        "cache_read": 0.03
+		      },
+		      "headers": {
+		        "User-Agent": "ucode/0.1.0 opencode/1.18.29"
+		      },
+		      "limit": {
+		        "context": 800000,
+		        "output": 25000
+		      },
+		      "variants": {
+		        "none": {
+		          "reasoningEffort": "none"
+		        },
+		        "low": {
+		          "reasoningEffort": "low"
+		        },
+		        "medium": {
+		          "disabled": true
+		        },
+		        "high": {
+		          "reasoningEffort": "high"
+		        },
+		        "max": {
+		          "reasoningEffort": "max"
+		        }
+		      }
+		    }
+		  }
+		},
+	"mcp": {},
+	"permission": {
+	  "external_directory": {
+	    "*": "ask",
+	    "/tmp/**": "allow",
+	    "/private/tmp/**": "allow",
+	    "/Users/zach/Documents/empirico/projects/**": "allow",
+	    "/Users/zach/.config/opencode/**": "allow",
+	    "/Users/zach/.cache/opencode/**": "allow",
+	    "/Users/zach/.cache/uv/**": "allow",
+	    "/Users/zach/.claude/skills/**": "allow",
+	    "/Users/zach/Library/Application Support/node-terminal/**": "allow",
+	    "/var/folders/0k/c0crrpz142n_h62r7nnmpnsr0000gn/T/opencode/**": "allow",
+	    "/Users/zach/.cargo/registry/src/*": "allow",
+	    "/Users/zach/.local/share/opencode/*": "allow"
+	  },
+	  "read": "allow",
+  "edit": {
+	    "*": "allow"
+  },
+	  "bash": {
+	    "*": "ask",
+	    "actionlint *": "allow",
+
+	    "pwd": "allow",
+
+	    "ls": "allow",
+	    "ls *": "allow",
+
+	    "wc": "allow",
+	    "wc *": "allow",
+	    "echo *": "allow",
+	    "cat *": "allow",
+	    "du *": "allow",
+	    "head": "allow",
+	    "head *": "allow",
+
+	    "uniq *": "allow",
+
+
+	    "rg *": "allow",
+
+	    "find *": "allow",
+
+	    "grep *": "allow",
+
+	    "which *": "allow",
+	    "uv *": "allow",
+	    "mypy *": "allow",
+	    "ruff *": "allow",
+	    "printf *": "allow",
+	    "sed *": "allow",
+	    "tail": "allow",
+	    "tail *": "allow",
+	    "true *": "allow",
+	    "jq *": "allow",
+
+	    "mdfind *": "allow",
+	    "*/python ~/.claude/skills/context-handoff/scripts/context_handoff.py *": "allow",
+
+		"git ls-files *": "allow",
+		"git rev-parse *": "allow",
+	    "git status": "allow",
+	    "git status *": "allow",
+	    "git show *": "allow",
+	    "git diff": "allow",
+	    "git diff *": "allow",
+	    "git log": "allow",
+	    "git log *": "allow",
+	    "git branch": "allow",
+	    "git branch *": "allow",
+	    "git worktree list": "allow",
+	    "git blame": "allow",
+	    "git blame *": "allow",
+	    "git add *": "allow",
+	    "git commit *": "allow",
+	    "git grep *": "allow",
+	    "git stash *": "allow",
+	    "git pr diff *": "allow",
+	    "git remote -v": "allow",
+	    "git remote": "allow",
+	    "git checkout *": "allow",
+	    "git rev-list *": "allow",
+	    "git worktree *": "allow",
+	    "git -C *": "allow",
+	    
+	    "source *": "allow",
+
+	    "rustfmt": "allow",
+	    "rustfmt *": "allow",
+	    "gh auth status": "allow",
+	    "gh repo *": "allow",
+	    "gh pr *": "allow",
+	    "gh api \"repos/empiricotx/remotely/dependabot/alerts*\"": "allow",
+	    "gh api repos/empiricotx/remotely/vulnerability-alerts*": "allow",
+	    "gh api repos/empiricotx/remotely/automated-security-fixes*": "allow",
+	    "gh api \"repos/empiricotx/remotely/dependabot/alerts*\"": "allow",
+
+	    "cargo *": "allow",
+	    "cargo-deny *": "allow",
+	    "awk *": "allow",
+
+	    "just *": "allow",
+
+	    "source .venv/bin/activate": "allow",
+
+	    "sort *": "allow",
+
+	    "pytest *": "allow",
+	    "mkdir *": "allow",
+	    "sh \"/Users/zach/Library/Application Support/node-terminal/context-links/context.sh\" *": "allow",
+	    "md5": "allow",
+	    "md5 *": "allow", 
+	    "md5sum": "allow",
+	    "md5sum *": "allow",
+	    "shasum *": "allow",
+	    "diff *": "allow",
+	    "zizmor *": "allow",
+
+	    "git rm *": "ask",
+	    "git rm": "ask",
+
+	    "gh repo delete": "deny",
+	    "gh repo set-default": "ask",
+	    "gh repo delete *": "deny",
+	    "gh repo set-default *": "ask",
+	    "gh pr merge *": "ask",
+	    "rm -rf *": "deny",
+	    "rm -r *": "deny",
+	    "opencode --version": "allow",
+	    "opencode --help": "allow",
+	    "opencode export": "allow"
+	  }
+	}
+  }
+}

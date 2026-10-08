@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Assignment",
+  "description": "Schema for task assignments passed to agents",
+  "type": "object",
+  "required": ["assignment_type", "issue_id", "task", "acceptance_criteria", "expected_output"],
+  "properties": {
+    "assignment_type": {
+      "type": "string",
+      "enum": ["implementation", "planning", "review", "knowledge_synthesis"],
+      "description": "Type of assignment being made"
+    },
+    "issue_id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]+$",
+      "description": "Linear issue ID (e.g., LIN-123)"
+    },
+    "task": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 200,
+          "description": "One sentence describing what to implement"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "2-3 sentences of additional context if needed"
+        }
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 10
+      },
+      "minItems": 1,
+      "maxItems": 10,
+      "description": "Specific, testable criteria for completion"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Technical constraints or limitations"
+    },
+    "relevant_context": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Paths to relevant files"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Dependencies that must be complete"
+        },
+        "learnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "description": "Relevant insights from past work (max 3)"
+        },
+        "reference_files": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\.agents/"
+          },
+          "description": "Paths to other agent result files"
+        }
+      }
+    },
+    "expected_output": {
+      "type": "object",
+      "required": ["result_path", "format", "required_fields"],
+      "properties": {
+        "result_path": {
+          "type": "string",
+          "pattern": "^\\.agents/",
+          "description": "Path where agent should write result"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["implementation_result", "implementation_plan", "review_result", "knowledge_synthesis_result"],
+          "description": "Expected result format"
+        },
+        "required_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Fields that must be present in result"
+        },
+        "status_values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Valid status values for result"
+        }
+      }
+    },
+    "scope_boundaries": {
+      "type": "object",
+      "properties": {
+        "in_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "What should be done"
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "What should NOT be done"
+        }
+      }
+    }
+  }
+}

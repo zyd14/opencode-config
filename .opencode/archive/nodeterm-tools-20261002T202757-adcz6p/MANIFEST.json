@@ -1,0 +1,105 @@
+{
+  "kind": "nodeterm-tools-installed-archive",
+  "created": "2026-10-02T20:27:57.474Z",
+  "config_dir": "/Users/zach/Documents/empirico/projects/worktrees/empiroar/nodeterm/.opencode",
+  "archive": "nodeterm-tools-20261002T202757-adcz6p",
+  "reason": "User-authorized archival (work/briefs/archive-nodeterm-tools.md): this config directory held the eight-tool nodeterm layer and the tool-era prompts from a prior deployment of this bundle (provenance byte-verified before any change). The tool files were MOVED here, never deleted; the eight bundle-owned prompts were backed up into previous-instructions/ and then replaced by the skills-first versions. This archive sits outside every opencode discovery directory (tools/, plugins/, agent/, command/, skills/), so nothing here is loaded as a tool/command/agent/skill; nothing is ever moved back automatically.",
+  "moved_files": [
+    {
+      "from": "tools/nodeterm.js",
+      "to": "archive/nodeterm-tools-20261002T202757-adcz6p/tools/nodeterm.js",
+      "sha256": "a5d5e148ac1aa53b6a3da8f4f9f2bc2aa04bdf66a45afccaec2f2e811da8a2a5",
+      "bytes": 30798
+    },
+    {
+      "from": "nodeterm/core.js",
+      "to": "archive/nodeterm-tools-20261002T202757-adcz6p/nodeterm/core.js",
+      "sha256": "2f5884aaeb6a6afd8b25917085acdbea62b483b04e0aa1f42f736dbe6a0aa851",
+      "bytes": 12443
+    },
+    {
+      "from": "nodeterm/roles.js",
+      "to": "archive/nodeterm-tools-20261002T202757-adcz6p/nodeterm/roles.js",
+      "sha256": "bbfb7ebe16c8fddb4afed386b4458d5eb267a0dc4fc9a6896ec57f7471232e00",
+      "bytes": 7194
+    },
+    {
+      "from": "nodeterm/role-launch.js",
+      "to": "archive/nodeterm-tools-20261002T202757-adcz6p/nodeterm/role-launch.js",
+      "sha256": "59c9e09a58089a44df5edf8520502e94662cf5c1e936cf2070ec9e19e625fa86",
+      "bytes": 6435
+    }
+  ],
+  "previous_instructions": [
+    {
+      "path": "agent/nodeterm-coordinator.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/agent/nodeterm-coordinator.md",
+      "sha256_before": "6d41f91f519cb4f7636b27a3584c0074f90f12353e99abddb415728717407158",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/agent/nodeterm-coordinator.md (sha256_after below)",
+      "sha256_after": "399fc2e0c7d7b5fda57deef4c611070f8f0f9cf4d53a0add94b4ce022732f1a9"
+    },
+    {
+      "path": "command/nodeterm-coordinate.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/command/nodeterm-coordinate.md",
+      "sha256_before": "ad3b2e90c8cefd07fb6c631d0ca90fedce9396e7f8518ca10a17ec84d3603549",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/command/nodeterm-coordinate.md (sha256_after below)",
+      "sha256_after": "3291136442242d0a53aa05496815f87f02af95daa6b39a26fc80b02257d0d4d9"
+    },
+    {
+      "path": "command/nodeterm-plan.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/command/nodeterm-plan.md",
+      "sha256_before": "73be8a0bacb990a75cd3469712d7721fbbb28192c428f23fc97d7dc2ba3f1bbe",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/command/nodeterm-plan.md (sha256_after below)",
+      "sha256_after": "6976c80a5a0055ba40a38642ed96ed566e297864fc5a7dc2f7392f8c4379a551"
+    },
+    {
+      "path": "command/nodeterm-review.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/command/nodeterm-review.md",
+      "sha256_before": "47959d1c22ec59346438a9d90aaf69dbde98e98174370fcfbda5f9e5f4ef033d",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/command/nodeterm-review.md (sha256_after below)",
+      "sha256_after": "63113dcc02ddf9685b5a90a6f39bb23bab299e1b9095f25eda36343a13ee43a2"
+    },
+    {
+      "path": "command/nodeterm-resume.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/command/nodeterm-resume.md",
+      "sha256_before": "eb88184972f4da91fddb862d79de3abf6484e158045c99c237f0e8f6df67d642",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/command/nodeterm-resume.md (sha256_after below)",
+      "sha256_after": "ac388f3fd0232f174ed51dcac79855fcfacc4d8982eda570fedf026c9a59ccb4"
+    },
+    {
+      "path": "skills/nodeterm-coordinate/SKILL.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/skills/nodeterm-coordinate/SKILL.md",
+      "sha256_before": "28fd2523133354e1f9d9ed3ef7be5e1f3b96e76436403151dc883aa2f2002462",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/skill/nodeterm-coordinate/SKILL.md (sha256_after below)",
+      "sha256_after": "1bba2fed60f932be92bb233df955f96a52f0803af4c415508e72a517642a505d"
+    },
+    {
+      "path": "skills/nodeterm-coordinate/references/workflow.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/skills/nodeterm-coordinate/references/workflow.md",
+      "sha256_before": "104dc71e042a88b18de0acbf236e9ca5e6a329857879a31fce3c1d561b3286be",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/skill/nodeterm-coordinate/references/workflow.md (sha256_after below)",
+      "sha256_after": "0c6ba57c9bb03f5b6934d3e31b6a2197e818ba19e44dfa19eda243dddbc61890"
+    },
+    {
+      "path": "nodeterm/coordinator.md",
+      "backup": "archive/nodeterm-tools-20261002T202757-adcz6p/previous-instructions/nodeterm/coordinator.md",
+      "sha256_before": "c38184ef11aa8e2e1b8ff8cdeb2cee70ab50971ac9dc7e00c38b12db707154fe",
+      "provenance": "byte-identical to the pre-archival bundle source (cmp-verified before this wave)",
+      "replaced_by": "skills-first bundle source src/nodeterm/coordinator.md (sha256_after below)",
+      "sha256_after": "870dc341d167db471a7058775bb3b2cabedc2ed9da090ba0bccde850176bb2b9"
+    }
+  ],
+  "untouched": [
+    "plugins/nodeterm-status.js — app-managed status telemetry required by sessions, NOT a bundle tool",
+    "agent/glm-setup.md — unchanged by this wave (still the current bundle source)",
+    "everything else under this config directory that is not listed above"
+  ],
+  "restoration": "Tool files: mv each file from this archive back to its original relative path under the config dir (e.g. mv <cfg>/archive/nodeterm-tools-20261002T202757-adcz6p/tools/nodeterm.js <cfg>/tools/nodeterm.js) and restart opencode — the legacy layer needs all four files. Prompts: mv the file from previous-instructions/<path> back to <path> under the config dir and restart opencode. Restoring the tool-era prompts alone does NOT restore the tools; restoring the tools alone does NOT update the prompts. All restoration is manual and deliberate; the installer and this archive never do it for you."
+}

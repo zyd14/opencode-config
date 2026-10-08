@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Result",
+  "description": "Schema for agent results",
+  "type": "object",
+  "required": ["result_type", "issue_id", "status", "summary"],
+  "properties": {
+    "result_type": {
+      "type": "string",
+      "enum": ["implementation", "planning", "review", "knowledge_synthesis"],
+      "description": "Type of result being returned"
+    },
+    "issue_id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]+$",
+      "description": "Linear issue ID (e.g., LIN-123)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["complete", "blocked", "needs_clarification", "partial"],
+      "description": "Status of the task"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 300,
+      "description": "Brief description of what was done"
+    },
+    "details": {
+      "type": "object",
+      "properties": {
+        "approach": {
+          "type": "string",
+          "description": "How the task was accomplished"
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Key decisions made and why"
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "files_created": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Paths to newly created files"
+        },
+        "files_modified": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Paths to modified files"
+        },
+        "pr_link": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to pull request"
+        },
+        "commit": {
+          "type": "string",
+          "description": "Commit SHA"
+        }
+      }
+    },
+    "divergences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["planned", "actual", "rationale"],
+        "properties": {
+          "planned": {
+            "type": "string",
+            "description": "What was originally planned"
+          },
+          "actual": {
+            "type": "string",
+            "description": "What was actually done"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Why the change was made"
+          },
+          "impact": {
+            "type": "string",
+            "description": "Effect on scope/timeline"
+          }
+        }
+      },
+      "description": "Deviations from the plan"
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Issues blocking progress"
+    },
+    "follow_up_needed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Items requiring future attention"
+    }
+  }
+}

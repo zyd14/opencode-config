@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AssignmentReference",
+  "description": "Schema for lightweight assignment references passed to agents",
+  "type": "object",
+  "required": ["assignment_path", "summary", "expected_result_path"],
+  "properties": {
+    "assignment_path": {
+      "type": "string",
+      "pattern": "^\\.agents/",
+      "description": "Path to full assignment file"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "One sentence task description"
+    },
+    "expected_result_path": {
+      "type": "string",
+      "pattern": "^\\.agents/",
+      "description": "Path where agent should write result"
+    }
+  }
+}

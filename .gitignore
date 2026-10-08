@@ -1,0 +1,6 @@
+.agents/
+**/node_modules/
+package-lock.json
+.DS_Store
+**.pyc
+bun.lock

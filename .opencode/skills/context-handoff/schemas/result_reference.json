@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ResultReference",
+  "description": "Schema for lightweight result references returned to coordinators",
+  "type": "object",
+  "required": ["result_path", "result_type", "status", "summary", "requires_attention", "timestamp"],
+  "properties": {
+    "result_path": {
+      "type": "string",
+      "pattern": "^\\.agents/",
+      "description": "Path to full result file"
+    },
+    "result_type": {
+      "type": "string",
+      "enum": ["implementation", "planning", "review", "knowledge_synthesis"],
+      "description": "Type of result"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["complete", "blocked", "needs_clarification", "partial"],
+      "description": "Status of the task"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "One sentence outcome"
+    },
+    "requires_attention": {
+      "type": "boolean",
+      "description": "Whether coordinator action is needed"
+    },
+    "attention_reason": {
+      "type": "string",
+      "description": "Why attention is needed (required if requires_attention is true)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["approved", "approved_with_suggestions", "changes_required", "rejected"],
+      "description": "Review decision (for review results only)"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "requires_attention": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": ["attention_reason"]
+      }
+    }
+  ]
+}
