@@ -39,6 +39,19 @@
 		          "xhigh":  { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "xhigh" },
 		          "max":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "max" }
 		        }
+		      },
+			  "claude-haiku-5-5": {
+		        "reasoning": true,
+		        "options": {
+		          "toolStreaming": false
+		        },
+		        "variants": {
+		          "low":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "low" },
+		          "medium": { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "medium" },
+		          "high":   { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "high" },
+		          "xhigh":  { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "xhigh" },
+		          "max":    { "thinking": { "type": "adaptive", "display": "summarized" }, "effort": "max" }
+		        }
 		      }
 		    }
 	    },
@@ -84,7 +97,6 @@
 	    },
 		"databricks-oss": {
 		  "whitelist": [
-		    "system.ai.glm-5-2",
 		    "system.ai.glm-5-3",
 		    "system.ai.glm-5-3-flash",
 		    "system.ai.deepseek-v4-pro-0813",
@@ -98,32 +110,6 @@
 		    "setCacheKey": true
 		  },
 		  "models": {
-		    "system.ai.glm-5-2": {
-		      "reasoning": true,
-		      "cost": {
-		        "input": 1.40,
-		        "output": 4.40,
-		        "cache_read": 0.26
-		      },
-		      "headers": {
-		        "User-Agent": "ucode/0.1.0 opencode/1.18.29"
-		      },
-		      "limit": {
-		        "context": 800000,
-		        "output": 25000
-		      },
-		      "variants": {
-		        "none": {
-		          "reasoningEffort": "none"
-		        },
-		        "high": {
-		          "reasoningEffort": "high"
-		        },
-		        "max": {
-		          "reasoningEffort": "max"
-		        }
-		      }
-		    },
 		    "system.ai.glm-5-3": {
 		      "reasoning": true,
 		      "cost": {
